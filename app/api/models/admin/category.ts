@@ -1,5 +1,9 @@
 import mongoose, { Schema } from 'mongoose';
 
+const {ObjectId} = mongoose.Types
+
+
+
 const categorySchema = new Schema(
     {
         name: {
@@ -8,53 +12,11 @@ const categorySchema = new Schema(
             trim: true,
         },
 
-        subcategories: [
-          {
-            name: {
-                type: String,
-                required: true,
-                trim: true,
-            },
-            details: [
-                {
-                    img:{
-                        type: String,
-                        required:true,
-                        trim: true,
-                    },
-                    passengers:{
-                        type: String,
-                        required:true,
-                        trim:true,
-                    },
-                    lugggage:{
-                        type: String,
-                        required:true,
-                        trim:true,
-                    },
-                    price:{
-                        type:String,
-                        required:true,
-                        trim:true,
-                    },
-                    extraServices:[
-                        {
-                        type: String ,
-                        required: true ,
-                        trim: true
-                        },
-                    ]
-                }            
-            ]
-          }
-        ],
+        subcategories:{
+            type:[ObjectId],
+            ref:"SubCategory"
+        },
         
-        childSeat:{
-            type: Boolean,
-        },
-        boosterSeat:{
-            type: Boolean,
-        },
     },
 );
 
