@@ -2,6 +2,20 @@ import connectDB from '../../../lib/connectDB';
 import Category from '../models/admin/category';
 import SubCategory from '../models/admin/subcategory';
 
+export async function GET(request,response) {
+  try {
+      await connectDB();
+
+     const data = await Category.find({}).populate("subcategories","").exec();
+
+      return Response.json({data:data});
+
+  } catch (err) {
+      console.log(err);
+      return Response.json({"message":"Hello"})
+  }
+}
+
 export async function POST(request, response) {
   try {
     await connectDB();
