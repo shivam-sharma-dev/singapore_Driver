@@ -5,8 +5,7 @@ import connectDB from "../../../lib/connectDB";
 
 export async function POST(request, response) {
     try {
-        const conn = await connectDB();
-        console.log(conn)
+        await connectDB();
 
         const formData = await request.json();
 
@@ -14,9 +13,33 @@ export async function POST(request, response) {
             name: formData.name,
         });
 
-        const sub = await subCategory.findOneAndUpdate({ _id: category._id }, {
-            $set: { ...formData.subcategories }
-        }, { new: true })
+        const sub = await subCategory.create({
+            name:formData.subCategory[0],
+            details:
+        })
+        /*
+        "subcategories":[
+        {
+            "name":"economy",
+            "details":{
+                "img":"https://localhost.com",
+                "passengers":"4",
+                "luggage":"unlimited",
+                "price":"70",
+                "extraServices":["hy","hello"],
+                "childSeat":"true",
+                "boosterSeat":"false",
+                "flightNumber":"true",
+                "notes":"false"
+            }
+        }
+    ]
+        
+        */
+
+        // const updateSub = await Category.findByIdAndUpdate({_id: category._id},
+        //     $set: { ...subCategory._id },
+        //     {});
 
 
 

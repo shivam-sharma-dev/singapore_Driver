@@ -15,27 +15,22 @@ const subCategorySchema =new Schema({
         {
             img:{
                 type: String,
-                required:true,
                 trim: true,
             },
             passengers:{
                 type: String,
-                required:true,
                 trim:true,
             },
             lugggage:{
                 type: String,
-                required:true,
                 trim:true,
             },
             price:{
                 type:String,
-                required:true,
                 trim:true,
             },
             extraServices:[{
                 type: String ,
-                required: true ,
                 trim: true,
                 // enum:allowedExtraService,
             }],

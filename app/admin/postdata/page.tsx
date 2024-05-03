@@ -6,7 +6,7 @@ import { useState } from 'react';
 const CategoryForm = () => {
   const [categoryName, setCategoryName] = useState('');
   const [subcategories, setSubcategories] = useState([
-    { name: '', details: { img: '', passengers: '', luggage: '', price: '', extraServices: [] , childseat: '' , boosterseat: '' , flightnumber: '' , notes: ''} }
+    { name: '', details: { img: '', passengers: '', luggage: '', price: '', extraServices: [] , childSeat: '' , boosterSeat: '' , flightNumber: '' , notes: ''} }
   ]);
 
   const handleSubcategoryChange = (index, field, value) => {
@@ -19,7 +19,7 @@ const CategoryForm = () => {
   const handleAddSubcategory = () => {
     setSubcategories([
       ...subcategories,
-      { name: '', details: { img: '', passengers: '', luggage: '', price: '', extraServices: [] , childseat: '', boosterseat: '' , flightnumber:'' , notes:'' } }
+      { name: '', details: { img: '', passengers: '', luggage: '', price: '', extraServices: [] , childSeat: '', boosterSeat: '' , flightNumber:'' , notes:'' } }
     ]);
   };
 
@@ -37,9 +37,9 @@ const CategoryForm = () => {
             luggage: subcategory.details.luggage,
             price: subcategory.details.price,
             extraServices: subcategory.details.extraServices,
-            childseat:subcategory.details.childseat,
-            boosterseat:subcategory.details.boosterseat,
-            flightnumber:subcategory.details.flightnumber,
+            childSeat:subcategory.details.childSeat,
+            boosterSeat:subcategory.details.boosterSeat,
+            flightNumber:subcategory.details.flightNumber,
             notes:subcategory.details.notes
           }
         }))
@@ -52,8 +52,8 @@ const CategoryForm = () => {
       console.log('Data posted successfully:', response.data);
 
       // Reset form fields after successful submission
-      setCategoryName('');
-      setSubcategories([{ name: '', details: { img: '', passengers: '', luggage: '', price: '', extraServices: [] , childseat: '', boosterseat: '' , flightnumber:'' , notes:'' } }]);
+      // setCategoryName('');
+      // setSubcategories([{ name: '', details: { img: '', passengers: '', luggage: '', price: '', extraServices: [] , childSeat: '', boosterSeat: '' , flightNumber:'' , notes:'' } }]);
     } catch (error) {
       console.error('Error posting data:', error);
     }
@@ -145,8 +145,8 @@ const CategoryForm = () => {
                 Yes
               <input
                 type="checkbox"
-                value={subcategory.details.childseat}
-                onChange={(e) => handleSubcategoryChange(index, 'childseat', e.target.value)}
+                value={subcategory.details.childSeat}
+                onChange={(e) => handleSubcategoryChange(index, 'childSeat', e.target.value)}
                 required
               />
               </label>
@@ -154,8 +154,8 @@ const CategoryForm = () => {
                 No
               <input
                 type="checkbox"
-                value={subcategory.details.childseat}
-                onChange={(e) => handleSubcategoryChange(index, 'childseat', e.target.value)}
+                value={subcategory.details.childSeat}
+                onChange={(e) => handleSubcategoryChange(index, 'childSeat', e.target.value)}
                 required
               />
               </label>
@@ -168,8 +168,8 @@ const CategoryForm = () => {
                 Yes
               <input
                 type="checkbox"
-                value={subcategory.details.boosterseat}
-                onChange={(e) => handleSubcategoryChange(index, 'boosterseat', e.target.value)}
+                value={subcategory.details.boosterSeat}
+                onChange={(e) => handleSubcategoryChange(index, 'boosterSeat', e.target.value)}
                 required
               />
               </label>
@@ -177,8 +177,8 @@ const CategoryForm = () => {
                 No
               <input
                 type="checkbox"
-                value={subcategory.details.boosterseat}
-                onChange={(e) => handleSubcategoryChange(index, 'boosterseat', e.target.value)}
+                value={subcategory.details.boosterSeat}
+                onChange={(e) => handleSubcategoryChange(index, 'boosterSeat', e.target.value)}
                 required
               />
               </label>
@@ -192,8 +192,8 @@ const CategoryForm = () => {
                 Yes
               <input
                 type="checkbox"
-                value={subcategory.details.flightnumber}
-                onChange={(e) => handleSubcategoryChange(index, 'flightnumber', e.target.value)}
+                value={subcategory.details.flightNumber}
+                onChange={(e) => handleSubcategoryChange(index, 'flightNumber', e.target.value)}
                 required
               />
               </label>
@@ -201,21 +201,33 @@ const CategoryForm = () => {
                 No
               <input
                 type="checkbox"
-                value={subcategory.details.flightnumber}
-                onChange={(e) => handleSubcategoryChange(index, 'flightnumber', e.target.value)}
+                value={subcategory.details.flightNumber}
+                onChange={(e) => handleSubcategoryChange(index, 'flightNumber', e.target.value)}
                 required
               />
               </label>
             </label>
             <br />
             <label>
-              Notes:
-              <input className='h-20'
-                type="textarea"
+              Notes : 
+              <label>
+                Yes
+              <input
+                type="checkbox"
                 value={subcategory.details.notes}
                 onChange={(e) => handleSubcategoryChange(index, 'notes', e.target.value)}
                 required
               />
+              </label>
+              <label>
+                No
+              <input
+                type="checkbox"
+                value={subcategory.details.notes}
+                onChange={(e) => handleSubcategoryChange(index, 'notes', e.target.value)}
+                required
+              />
+              </label>
             </label>
             <br />
           </div>
