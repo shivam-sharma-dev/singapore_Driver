@@ -1,0 +1,39 @@
+{
+  "name": "airport transfer service",
+  "subcategories": [
+    {
+      "name": "economy1",
+      "details": {
+        "img": "https://localhost.com",
+        "passengers": "4",
+        "luggage": "unlimited",
+        "price": "70",
+        "extraServices": [
+          "hy",
+          "hello"
+        ],
+        "childSeat": true,
+        "boosterSeat": false,
+        "flightnumber": true,
+        "notes": true
+      }
+    },
+    {
+      "name": "economy2",
+      "details": {
+        "img": "https://localhost.com",
+        "passengers": "4",
+        "luggage": "unlimited",
+        "price": "70",
+        "extraServices": [
+          "hy",
+          "hello"
+        ],
+        "childSeat": true,
+        "boosterSeat": false,
+        "flightnumber": true,
+        "notes": true
+      }
+    }
+  ]
+}
