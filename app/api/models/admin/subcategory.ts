@@ -2,51 +2,50 @@ import mongoose, { Schema } from 'mongoose';
 
 // const allowedExtraService = ["Meet & Greeet","Free Waiting Time","Door To Door","Porter Service"];
 
-const subCategorySchema =new Schema({
+const subCategorySchema = new Schema({
+  name: {
+    type: String,
+    // required: true,
+    // trim: true,
+  },
 
-    name: {
-        type: String,
-        required: true,
-        trim: true,
+  details: {
+    img: {
+      type: String,
+      // required:true,
+      // trim: true,
     },
-    
-    details:
-
-        {
-            img:{
-                type: String,
-                trim: true,
-            },
-            passengers:{
-                type: String,
-                trim:true,
-            },
-            lugggage:{
-                type: String,
-                trim:true,
-            },
-            price:{
-                type:String,
-                trim:true,
-            },
-            extraServices:[{
-                type: String ,
-                trim: true,
-                // enum:allowedExtraService,
-            }],
-            childSeat:{
-                type: Boolean,
-            },
-            boosterSeat:{
-                type: Boolean,
-            },
-            flightNumber:{
-                type:Boolean,
-            },
-            notes:{
-                type:Boolean,
-            }                
-        }
+    passengers: {
+      type: String,
+      // required:true,
+      // trim:true,
+    },
+    lugggage: {
+      type: String,
+      // required:true,
+      // trim:true,
+    },
+    price: {
+      type: String,
+      // required:true,
+      // trim:true,
+    },
+    extraServices: {
+      type: [String],
+    },
+    childSeat: {
+      type: Boolean,
+    },
+    boosterSeat: {
+      type: Boolean,
+    },
+    flightNumber: {
+      type: Boolean,
+    },
+    notes: {
+      type: Boolean,
+    },
+  },
 });
 
 // let subCategory: any;
@@ -58,5 +57,7 @@ const subCategorySchema =new Schema({
 // }
 
 // export default subCategory;
-const SubCategory= mongoose.models.SubCategory || mongoose.model('SubCategory', subCategorySchema);
+const SubCategory =
+  mongoose.models.SubCategory ||
+  mongoose.model('SubCategory', subCategorySchema);
 export default SubCategory;
